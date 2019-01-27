@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { HN_CONFIG as HACKER_NEWS } from '../constants/constants';
+import { STORY_TYPES } from '../constants/constants';
 
 
 const axiosInstance = axios.create({
@@ -18,6 +19,22 @@ export const getItem = async function(id) {
   return result;
 };
 
+export /**
+ *
+ *
+ * @param {*} type
+ * @returns
+ */
+const getStoriesIdArray = (type) => {
+  if(type === STORY_TYPES.topStories ) {
+    return getTopStoriesIdArray();
+  } else if (type === STORY_TYPES.bestStories ) {
+    return getBestStoriesIdArray();
+  } else if ( type === STORY_TYPES.newStories ) {
+    return getNewStoriesIdArray();
+  }
+};
+
 /**
  *
  *
@@ -30,7 +47,7 @@ export const getTopStoriesIdArray = () => axiosInstance.get(HACKER_NEWS.topStori
  *
  *
  */
-export const getBestStories = () => axiosInstance.get(HACKER_NEWS.bestStories)
+export const getBestStoriesIdArray = () => axiosInstance.get(HACKER_NEWS.bestStories)
   .then( response => response.data )
   .catch( error => error );
 
@@ -38,7 +55,7 @@ export const getBestStories = () => axiosInstance.get(HACKER_NEWS.bestStories)
  *
  *
  */
-export const getNewStories = () => axiosInstance.get(HACKER_NEWS.newStories)
+export const getNewStoriesIdArray = () => axiosInstance.get(HACKER_NEWS.newStories)
   .then( response => response.data )
   .catch( error => error );
 

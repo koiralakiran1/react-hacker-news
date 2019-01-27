@@ -28,14 +28,14 @@ class App extends Component {
         <Switch>
           <Route path={APP_ROUTES.home} render={ (props) => {
             return (
-              <div className="container">
+              <div className="container app-body">
                 <div className="row">
-                  <div className="col-lg-8">
-                    <List position={LIST_POSITIONS.main} type={STORY_TYPES.topStories} {...props} />
+                  <div className="col-lg-8 no-left-padding">
+                    <List position={LIST_POSITIONS.main} listLength={20} type={STORY_TYPES.topStories} {...props} />
                   </div>
-                  <div className="col-lg-4">
-                    <List position={LIST_POSITIONS.side} type={STORY_TYPES.newStories} {...props} />
-                    <List position={LIST_POSITIONS.side} type={STORY_TYPES.bestStories} {...props} />
+                  <div className="col-lg-4 no-left-padding">
+                    <List position={LIST_POSITIONS.side} listLength={10} type={STORY_TYPES.newStories} {...props} />
+                    <List position={LIST_POSITIONS.side} listLength={10} type={STORY_TYPES.bestStories} {...props} />
                   </div>
                 </div>
               </div>
@@ -43,22 +43,22 @@ class App extends Component {
           }} />
           <Route path={APP_ROUTES.topStories} render={ (props) => {
             return (
-              <div className="container">
-                <List position={LIST_POSITIONS.main} type={STORY_TYPES.topStories} {...props} />
+              <div className="container app-body">
+                <List position={LIST_POSITIONS.main} listLength={20} type={STORY_TYPES.topStories} {...props} />
               </div>
             );
           }} />
           <Route path={APP_ROUTES.bestStories} render= { (props) => {
             return (
-              <div className="container">
-                <List position={LIST_POSITIONS.main} type={STORY_TYPES.bestStories} {...props} />
+              <div className="container app-body">
+                <List position={LIST_POSITIONS.main} listLength={20} type={STORY_TYPES.bestStories} {...props} />
               </div>
             );
           }} />
           <Route path={APP_ROUTES.newStories} render= { (props) => {
             return (
-              <div className="container">
-                <List position={LIST_POSITIONS.main} type={STORY_TYPES.newStories} {...props} />
+              <div className="container app-body">
+                <List position={LIST_POSITIONS.main} listLength={20} type={STORY_TYPES.newStories} {...props} />
               </div>
             );
           }} />
