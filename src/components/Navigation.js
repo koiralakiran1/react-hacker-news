@@ -3,9 +3,21 @@ import { Link, withRouter } from 'react-router-dom';
 import hackerNewsLogo from '../assets/images/hn.png';
 import { APP_ROUTES } from '../constants/constants';
 
+/**
+ *
+ *
+ * @class Navigation
+ * @extends {Component}
+ */
 class Navigation extends Component {
+  /**
+   *
+   *
+   * @returns
+   * @memberof Navigation
+   */
   render() {
-    console.log(this.props);
+
     return (
       <div className="container-flex bg-orange">
         <nav className="container navbar navbar-expand-lg navbar-dark">
@@ -17,16 +29,16 @@ class Navigation extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className={this.props.location.pathname === APP_ROUTES.home ? "nav-item active": "nav-item"}>
+              <li className={this.props.location.pathname === APP_ROUTES.home ? 'nav-item active' : 'nav-item'}>
                 <Link className="nav-link" to={APP_ROUTES.home}>Home<span className="sr-only">(current)</span></Link>
               </li>
-              <li className={this.props.location.pathname === APP_ROUTES.topStories ? "nav-item active": "nav-item"}>
+              <li className={this.props.location.pathname === APP_ROUTES.topStories ? 'nav-item active' : 'nav-item'}>
                 <Link className="nav-link" to={APP_ROUTES.topStories}>Top Stories</Link>
               </li>
-              <li className={this.props.location.pathname === APP_ROUTES.newStories ? "nav-item active": "nav-item"}>
+              <li className={this.props.location.pathname === APP_ROUTES.newStories ? 'nav-item active' : 'nav-item'}>
                 <Link className="nav-link" to={APP_ROUTES.newStories}>New Stories</Link>
               </li>
-              <li className={this.props.location.pathname === APP_ROUTES.bestStories ? "nav-item active": "nav-item"}>
+              <li className={this.props.location.pathname === APP_ROUTES.bestStories ? 'nav-item active' : 'nav-item'}>
                 <Link className="nav-link" to={APP_ROUTES.bestStories}>Best Stories</Link>
               </li>
             </ul>

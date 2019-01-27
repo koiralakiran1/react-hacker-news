@@ -20,3 +20,14 @@ export const HN_CONFIG = {
   showStories: '/showstories.json',
   jobStories: '/jobstories.json'
 };
+
+export const STORY_TYPES = {
+  'topStories': 'topStories',
+  'newStories': 'newStories',
+  'bestStories': 'bestStories'
+};
+
+export const LIST_POSITIONS = {
+  'main': 'main',
+  'side': 'side'
+};
