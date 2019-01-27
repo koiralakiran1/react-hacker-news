@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
 import * as Utils from '../utils/utils';
+import { Link } from 'react-router-dom';
 
 /**
  *
@@ -65,7 +66,7 @@ export class ListItem extends Component {
         </h2>
         <p className="item-footer">
           Post ID: { itemData.id } | Score: { itemData.score } |
-          <a href="#"> Comments: { itemData.descendants }</a>
+          <Link to={`${itemData.id}`}> Comments: { itemData.descendants }</Link>
         </p>
       </li>
     );

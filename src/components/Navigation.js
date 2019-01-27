@@ -19,7 +19,7 @@ class Navigation extends Component {
   render() {
 
     return (
-      <div className="container-flex bg-orange">
+      <div className="sticky-top container-flex bg-orange">
         <nav className="container navbar navbar-expand-lg navbar-dark">
           <Link to="/" className="navbar-brand">
             <img width="120px" height="50px" src={hackerNewsLogo} alt="Hacker News" />

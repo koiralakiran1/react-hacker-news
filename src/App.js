@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { List } from './components/List';
 import { APP_ROUTES, STORY_TYPES, LIST_POSITIONS } from './constants/constants';
+import Comment from './components/Comment';
 
 /**
  *
@@ -59,6 +60,13 @@ class App extends Component {
             return (
               <div className="container app-body">
                 <List position={LIST_POSITIONS.main} listLength={20} type={STORY_TYPES.newStories} {...props} />
+              </div>
+            );
+          }} />
+          <Route exact path="/:storyId" render = { (props) => {
+            return (
+              <div className="container app-body">
+                <Comment {...props}/>
               </div>
             );
           }} />

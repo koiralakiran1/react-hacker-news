@@ -66,7 +66,7 @@ export class List extends React.Component {
    */
   render() {
 
-    return ( this.state.isLoading ? <Spinner /> :
+    return (
       <>
         <h3><Link to={this.props.type}>{this.getListTopicHeader()}</Link></h3>
         <ul className={this.props.position === LIST_POSITIONS.main ? 'list-group-flush' : 'list-group'}>

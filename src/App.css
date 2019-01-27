@@ -17,7 +17,7 @@ nav a img {
   padding: 5px;
   background: white;
 }
-nav.container {
+nav.container, .app-body.container {
   padding: 0px;
 }
 nav li.active {
