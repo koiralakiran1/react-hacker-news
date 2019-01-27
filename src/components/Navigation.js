@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import hackerNewsLogo from '../assets/images/hn.png';
+import { APP_ROUTES } from '../constants/constants';
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   render() {
+    console.log(this.props);
     return (
-      <div className="container-flex">
-        <nav className="container navbar navbar-expand-lg navbar-light">
+      <div className="container-flex bg-orange">
+        <nav className="container navbar navbar-expand-lg navbar-dark">
           <Link to="/" className="navbar-brand">
-            <img width="100px" height="40px" src={hackerNewsLogo} alt="Hacker News" />
+            <img width="120px" height="50px" src={hackerNewsLogo} alt="Hacker News" />
           </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/home">Home<span className="sr-only">(current)</span></Link>
+              <li className={this.props.location.pathname === APP_ROUTES.home ? "nav-item active": "nav-item"}>
+                <Link className="nav-link" to={APP_ROUTES.home}>Home<span className="sr-only">(current)</span></Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/topstories">Top Stories</Link>
+              <li className={this.props.location.pathname === APP_ROUTES.topStories ? "nav-item active": "nav-item"}>
+                <Link className="nav-link" to={APP_ROUTES.topStories}>Top Stories</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/newstories">New Stories</Link>
+              <li className={this.props.location.pathname === APP_ROUTES.newStories ? "nav-item active": "nav-item"}>
+                <Link className="nav-link" to={APP_ROUTES.newStories}>New Stories</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/beststories">Best Stories</Link>
+              <li className={this.props.location.pathname === APP_ROUTES.bestStories ? "nav-item active": "nav-item"}>
+                <Link className="nav-link" to={APP_ROUTES.bestStories}>Best Stories</Link>
               </li>
             </ul>
           </div>
@@ -34,3 +36,5 @@ export default class Navigation extends Component {
     );
   }
 }
+
+export default withRouter(Navigation);
