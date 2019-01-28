@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
+import * as Utils from '../utils/utils';
 
 
 /**
@@ -55,22 +56,18 @@ class CommentItem extends Component {
     const { data } = this.props;
 
     return (
-      <div>
-        <li key={data.id} dangerouslySetInnerHTML={{ __html: data.text }} />
-        <div>createdAt: {new Date(data.time).toLocaleString()}</div>
-
-        {this.state.commentChild ? (
-          this.state.commentChild.map(value => (
-            <div key={value.id}>
-              <CommentItem data={value} key={value.id} />
-            </div>
-          ))
-        ) : (
-          <div className="progress progress-bar">
-            <div className="indeterminate" />
-          </div>
-        )}
-      </div>
+      <li className="list-group-item comment">
+        <p className="comment-footer">{Utils.timestampConvertor(data.time)} | By:
+          <a href={'https://news.ycombinator.com/user?id=' + data.by}> @{data.by}</a>
+        </p>
+        <p className="comment-text" key={data.id} dangerouslySetInnerHTML={{ __html: data.text }} />
+        {/* <p className="comment-header">Hello</p> */}
+        {this.state.commentChild.map( child => (
+          <ul className="list-group comment-child" key={child.id}>
+            <CommentItem data={child} key={child.id} />
+          </ul>
+        ))}
+      </li>
     );
   }
 }

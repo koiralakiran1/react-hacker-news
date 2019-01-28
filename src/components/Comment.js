@@ -49,7 +49,9 @@ class Comment extends Component {
           .catch(error => error);
       });
     } else {
-      this.setState({ errors: 'no comments to display' });
+      this.setState({
+        errors: 'No Comments.'
+      });
     }
   }
 
@@ -65,9 +67,9 @@ class Comment extends Component {
       <>
         <h2>{this.state.storyData.title}</h2>
         {this.state.comments.length !== 0 ? (
-          <ul>
-            {this.state.comments.map(data => (
-              <CommentItem data={data} key={data.id} />
+          <ul className="comment-tree list-group">
+            {this.state.comments.map( comment => (
+              <CommentItem data={ comment } key={ comment.id} />
             ))}
           </ul>
         ) : (

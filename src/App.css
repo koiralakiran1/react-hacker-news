@@ -10,9 +10,11 @@ h3 {
   box-shadow: 0px 5px 10px grey;
   margin-bottom: 5px;
 }
-.App .no-left-padding {
+
+.App .no-left-padding, .App .list-group-flush {
   padding-left: 0px;
 }
+
 nav a img {
   padding: 5px;
   background: white;
@@ -34,11 +36,8 @@ nav li a {
   color: white !important;
   padding: 1.2rem 1.5rem !important;
 }
-.App .list-group-flush {
-  padding-left: 0px;
-}
 
-app-body ul {
+.app-body ul {
   padding-bottom: 10px;
 }
 
@@ -48,19 +47,52 @@ li h2 {
 li h4 {
   font-size: 14px;
 }
-li p {
+
+.simple-item p {
+  font-size: 10px;
   margin-bottom: 5px;
   color: grey;
 }
-.simple-item p {
-  font-size: 10px;
-}
 
-.main-item p {
+.main-item p,  {
   font-size: 11px;
+  margin-bottom: 5px;
+  color: grey;
 }
 
 .item-footer a {
   color: blue !important;
 }
 
+ul.comment-tree li {
+  list-style: none;
+}
+
+.list-group-item {
+  border-left: none;
+}
+
+.comment {
+  padding-left: 20px;
+  border-left: 2px dotted darkgrey;
+}
+.comment:hover {
+  padding-left: 20px;
+  border-left: 2px solid rgb(255, 69, 0);
+}
+.comment-tree .list-group, .comment-tree .list-group-item {
+  padding-bottom: 0px;
+}
+
+.comment-tree>li {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.comment>p {
+  font-size: 12px;
+}
+.comment>p.comment-header, .comment>p.comment-footer {
+  font-size: 10px;
+  color: grey;
+}
