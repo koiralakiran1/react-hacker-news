@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
 import CommentItem from './CommentItem';
+import * as Utils from '../utils/utils';
 
 /**
  *
@@ -65,7 +66,10 @@ class Comment extends Component {
 
     return (
       <>
-        <h2>{this.state.storyData.title}</h2>
+        <h2><a href={this.state.storyData.url}>{this.state.storyData.title}</a></h2>
+        <p className="story-header">{Utils.timestampConvertor(this.state.storyData.time)} | By:
+          <a href={'https://news.ycombinator.com/user?id=' + this.state.storyData.by}> @{this.state.storyData.by}</a>
+        </p>
         {this.state.comments.length !== 0 ? (
           <ul className="comment-tree list-group">
             {this.state.comments.map( comment => (

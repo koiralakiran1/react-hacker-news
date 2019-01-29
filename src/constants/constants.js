@@ -22,9 +22,9 @@ export const HN_CONFIG = {
 };
 
 export const STORY_TYPES = {
-  'topStories': 'topStories',
-  'newStories': 'newStories',
-  'bestStories': 'bestStories'
+  'topStories': 'topstories',
+  'newStories': 'newstories',
+  'bestStories': 'beststories'
 };
 
 export const LIST_POSITIONS = {

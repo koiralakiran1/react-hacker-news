@@ -17,7 +17,6 @@ class Navigation extends Component {
    * @memberof Navigation
    */
   render() {
-
     return (
       <div className="sticky-top container-flex bg-orange">
         <nav className="container navbar navbar-expand-lg navbar-dark">

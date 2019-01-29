@@ -54,7 +54,7 @@ li h4 {
   color: grey;
 }
 
-.main-item p,  {
+.main-item p  {
   font-size: 11px;
   margin-bottom: 5px;
   color: grey;
@@ -68,15 +68,15 @@ ul.comment-tree li {
   list-style: none;
 }
 
-.list-group-item {
+.comment-tree .list-group-item {
   border-left: none;
 }
 
-.comment {
+.comment-tree .comment {
   padding-left: 20px;
   border-left: 2px dotted darkgrey;
 }
-.comment:hover {
+.comment-tree .comment:hover {
   padding-left: 20px;
   border-left: 2px solid rgb(255, 69, 0);
 }
@@ -85,7 +85,7 @@ ul.comment-tree li {
 }
 
 .comment-tree>li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 

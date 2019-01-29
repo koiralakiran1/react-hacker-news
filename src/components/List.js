@@ -42,6 +42,22 @@ export class List extends React.Component {
     });
   }
 
+
+  /**
+   *
+   *
+   * @param {*} prevProps
+   * @memberof List
+   */
+  async componentDidUpdate(prevProps) {
+    const list = (await RequestHandlers.getStoriesIdArray(this.props.type)).slice(0, this.props.listLength);
+
+    if(this.props.type !== prevProps.type) {
+      this.setState({
+        list
+      });
+    }
+  }
   /**
    *
    *
@@ -65,7 +81,6 @@ export class List extends React.Component {
    * @memberof List
    */
   render() {
-
     return (
       <>
         <h3><Link to={this.props.type}>{this.getListTopicHeader()}</Link></h3>
