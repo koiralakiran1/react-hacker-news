@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f32ad5dca84942fb5981",
+    "revision": "e09b45293db0021ad9f2",
     "url": "/react-hacker-news/static/css/main.63193b13.chunk.css"
   },
   {
-    "revision": "f32ad5dca84942fb5981",
-    "url": "/react-hacker-news/static/js/main.f32ad5dc.chunk.js"
+    "revision": "e09b45293db0021ad9f2",
+    "url": "/react-hacker-news/static/js/main.e09b4529.chunk.js"
   },
   {
     "revision": "94c4f4d0e5572e1ad98b",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-hacker-news/static/js/runtime~main.9d1cecd3.js"
   },
   {
-    "revision": "0f0799f7695633e127ae7187e7972296",
+    "revision": "439d9cdf867fa56de5cb3e910e9b1e22",
     "url": "/react-hacker-news/index.html"
   }
 ];
