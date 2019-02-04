@@ -25,7 +25,11 @@ export class List extends React.Component {
     super(props);
     this.state = {
       list: [],
+      displayList: [],
+      currentPage: 0
     };
+    this.onPrevClicked = this.onPrevClicked.bind(this);
+    this.onNextClicked = this.onNextClicked.bind(this);
   }
 
   /**
@@ -34,12 +38,18 @@ export class List extends React.Component {
    * @memberof List
    */
   async componentDidMount() {
-    const list = (await RequestHandlers.getStoriesIdArray(this.props.type)).slice(0, this.props.listLength);
+    const list = await RequestHandlers.getStoriesIdArray(this.props.type);
+    const startIndex = this.state.currentPage * this.props.listLength;
+    const endIndex = this.state.currentPage * this.props.listLength + this.props.listLength;
+    const displayList = list.slice(startIndex, endIndex);
+
 
     this.setState({
       list,
+      displayList
     });
   }
+
 
 
   /**
@@ -49,10 +59,16 @@ export class List extends React.Component {
    * @memberof List
    */
   async componentDidUpdate(prevProps) {
-    const list = (await RequestHandlers.getStoriesIdArray(this.props.type)).slice(0, this.props.listLength);
-
     if(this.props.type !== prevProps.type) {
+      const currentPage = 0;
+      const list = await RequestHandlers.getStoriesIdArray(this.props.type);
+      const startIndex = this.state.currentPage * this.props.listLength;
+      const endIndex = this.state.currentPage * this.props.listLength + this.props.listLength;
+      const displayList = list.slice(startIndex, endIndex);
+
       this.setState({
+        displayList,
+        currentPage,
         list
       });
     }
@@ -76,15 +92,58 @@ export class List extends React.Component {
   /**
    *
    *
+   * @param {*} e
+   * @memberof List
+   */
+  onPrevClicked(e) {
+    e.preventDefault();
+    const currentPage = (this.state.currentPage - 1) < 0 ? 0 : this.state.currentPage - 1;
+    const startIndex = currentPage * this.props.listLength;
+    const endIndex = currentPage * this.props.listLength + this.props.listLength;
+    const displayList = this.state.list.slice(startIndex, endIndex);
+
+    this.setState({
+      currentPage,
+      displayList
+    });
+  }
+
+  /**
+   *
+   *
+   * @param {*} e
+   * @memberof List
+   */
+  onNextClicked(e) {
+    e.preventDefault();
+    const currentPage = this.state.currentPage + 1;
+
+    const startIndex = currentPage * this.props.listLength;
+    const endIndex = currentPage * this.props.listLength + this.props.listLength;
+    const displayList = this.state.list.slice(startIndex, endIndex);
+
+    this.setState({
+      currentPage,
+      displayList
+    });
+  }
+
+  /**
+   *
+   *
    * @returns
    * @memberof List
    */
   render() {
     return (
       <>
-        <h3><Link to={this.props.type}>{this.getListTopicHeader()}</Link></h3>
+        <div className="row">
+          <h3 className="col-xl-1" onClick={this.onPrevClicked}>{'<'}</h3>
+          <h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()} ({this.state.currentPage})</Link></h3>
+          <h3 className="col-xl-1" onClick={this.onNextClicked}>{'>'}</h3>
+        </div>
         <ul className={this.props.position === LIST_POSITIONS.main ? 'list-group-flush' : 'list-group'}>
-          {this.state.list.map( (id) => {
+          {this.state.displayList.map( (id) => {
             return (
               this.props.position === LIST_POSITIONS.main ?
                 <ListItem id={id} key={id} /> : <SimpleListItem id={id} key={id} />
