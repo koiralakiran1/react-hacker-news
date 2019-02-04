@@ -4,7 +4,6 @@ import { SimpleListItem } from './SimpleListItem';
 import { STORY_TYPES, LIST_POSITIONS } from '../constants/constants';
 import { Link } from 'react-router-dom';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
-import Spinner from './Spinner';
 
 
 /**

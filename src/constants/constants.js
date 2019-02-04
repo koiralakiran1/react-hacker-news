@@ -1,12 +1,12 @@
 export const APP_ROUTES = {
-  root: '/',
-  home: '/home',
-  topStories: '/topstories',
-  newStories: '/newstories',
-  bestStories: '/beststories',
-  askStories: '/askstories',
-  showStories: '/showstories',
-  jobStories: '/jobstories'
+  root: `${process.env.PUBLIC_URL}/`,
+  home: `${process.env.PUBLIC_URL}/home`,
+  topStories: `${process.env.PUBLIC_URL}/topstories`,
+  newStories: `${process.env.PUBLIC_URL}/newstories`,
+  bestStories: `${process.env.PUBLIC_URL}/beststories`,
+  askStories: `${process.env.PUBLIC_URL}/askstories`,
+  showStories: `${process.env.PUBLIC_URL}/showstories`,
+  jobStories: `${process.env.PUBLIC_URL}/jobstories`
 };
 
 export const HN_CONFIG = {
