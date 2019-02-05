@@ -100,7 +100,7 @@ export class List extends React.Component {
     e.preventDefault();
     const currentPage = (this.state.currentPage - 1) < 0 ? 0 : this.state.currentPage - 1;
     const startIndex = currentPage * this.props.listLength;
-    const endIndex = currentPage * this.props.listLength + this.props.listLength;
+    const endIndex = startIndex + this.props.listLength;
     const displayList = this.state.list.slice(startIndex, endIndex);
 
     this.setState({
@@ -117,10 +117,12 @@ export class List extends React.Component {
    */
   onNextClicked(e) {
     e.preventDefault();
-    const currentPage = this.state.currentPage + 1;
+    const maxPageNumber = Math.floor( this.state.list.length / this.props.listLength ) - 1;
+
+    const currentPage = (this.state.currentPage) >= maxPageNumber ? maxPageNumber : this.state.currentPage + 1 ;
 
     const startIndex = currentPage * this.props.listLength;
-    const endIndex = currentPage * this.props.listLength + this.props.listLength;
+    const endIndex = startIndex + this.props.listLength;
     const displayList = this.state.list.slice(startIndex, endIndex);
 
     this.setState({
@@ -144,7 +146,7 @@ export class List extends React.Component {
               (
                 <div className="row">
                   <h3 className="col-xl-1 clickable-previous" onClick={this.onPrevClicked}>{'<'}</h3>
-                  <h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()} ({this.state.currentPage})</Link></h3>
+                  <h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()} ({this.state.currentPage + 1})</Link></h3>
                   <h3 className="col-xl-1 clickable-next" onClick={this.onNextClicked}>{'>'}</h3>
                 </div>
               ) : (<h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()}</Link></h3>)
