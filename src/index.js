@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter basename="/react-hacker-news">
+  <BrowserRouter basename="react-hacker-news">
     <App />
   </BrowserRouter>, document.getElementById('root'));
 

@@ -5,6 +5,12 @@
 h3 {
   text-align: center;
 }
+
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .bg-orange {
   background: rgb(255, 102, 0);
   box-shadow: 0px 5px 10px grey;
@@ -15,7 +21,7 @@ h3 {
   padding-left: 0px;
 }
 
-nav a img {
+nav a img, .login-box img {
   padding: 5px;
   background: white;
 }
@@ -95,4 +101,17 @@ ul.comment-tree li {
 .comment>p.comment-header, .comment>p.comment-footer {
   font-size: 10px;
   color: grey;
+}
+
+.login-box {
+  margin-top: 20vh;
+  text-align: center;
+}
+.login-box * {
+  padding: 10px;
+}
+
+button.bg-orange:hover {
+  background: rgb(255, 69, 0);
+  box-shadow: inset 5px 5px 10px rgb(255, 102, 0);
 }
