@@ -1,13 +1,13 @@
 {
   "main.css": "/react-hacker-news/static/css/main.a28e23f4.chunk.css",
-  "main.js": "/react-hacker-news/static/js/main.3fc994b9.chunk.js",
-  "main.js.map": "/react-hacker-news/static/js/main.3fc994b9.chunk.js.map",
+  "main.js": "/react-hacker-news/static/js/main.8026b121.chunk.js",
+  "main.js.map": "/react-hacker-news/static/js/main.8026b121.chunk.js.map",
   "static/js/1.2b39abaf.chunk.js": "/react-hacker-news/static/js/1.2b39abaf.chunk.js",
   "static/js/1.2b39abaf.chunk.js.map": "/react-hacker-news/static/js/1.2b39abaf.chunk.js.map",
   "runtime~main.js": "/react-hacker-news/static/js/runtime~main.9d1cecd3.js",
   "runtime~main.js.map": "/react-hacker-news/static/js/runtime~main.9d1cecd3.js.map",
   "static/css/main.a28e23f4.chunk.css.map": "/react-hacker-news/static/css/main.a28e23f4.chunk.css.map",
   "index.html": "/react-hacker-news/index.html",
-  "precache-manifest.0f834a9a9904664cb8711aadd0c8bdab.js": "/react-hacker-news/precache-manifest.0f834a9a9904664cb8711aadd0c8bdab.js",
+  "precache-manifest.f59650057c0ce1d08c115668245934e2.js": "/react-hacker-news/precache-manifest.f59650057c0ce1d08c115668245934e2.js",
   "service-worker.js": "/react-hacker-news/service-worker.js"
 }
