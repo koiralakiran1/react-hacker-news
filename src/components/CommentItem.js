@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types';
+import * as Utils from '../utils/utils';
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
-import * as Utils from '../utils/utils';
+
 
 
 /**
  *
  *
  * @class CommentItem
- * @extends {Component}
  */
 class CommentItem extends Component {
 
@@ -73,3 +74,8 @@ class CommentItem extends Component {
 }
 
 export default CommentItem;
+
+CommentItem.propTypes = {
+  data: PropTypes.any.isRequired,
+  kid: PropTypes.any.isRequired
+};

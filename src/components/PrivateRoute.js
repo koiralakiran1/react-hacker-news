@@ -1,4 +1,5 @@
 import React from 'react';
+import { APP_ROUTES } from '../constants/constants';
 import { Redirect, Route } from 'react-router-dom';
 
 /**
@@ -16,7 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       ) : (
         <Redirect
           to={{
-            pathname: '/login',
+            pathname: APP_ROUTES.login,
             state: { from: props.location }
           }}
         />

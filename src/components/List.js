@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ListItem } from './ListItem';
-import { SimpleListItem } from './SimpleListItem';
-import { STORY_TYPES, LIST_POSITIONS } from '../constants/constants';
 import { Link } from 'react-router-dom';
+import { SimpleListItem } from './SimpleListItem';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
+import { STORY_TYPES, LIST_POSITIONS } from '../constants/constants';
 
 
 /**
@@ -137,15 +138,22 @@ export class List extends React.Component {
   render() {
     return (
       <>
-        <div className="row">
-          <h3 className="col-xl-1" onClick={this.onPrevClicked}>{'<'}</h3>
-          <h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()} ({this.state.currentPage})</Link></h3>
-          <h3 className="col-xl-1" onClick={this.onNextClicked}>{'>'}</h3>
+        <div className="list-header">
+          {
+            this.props.position === LIST_POSITIONS.main ?
+              (
+                <div className="row">
+                  <h3 className="col-xl-1 clickable-previous" onClick={this.onPrevClicked}>{'<'}</h3>
+                  <h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()} ({this.state.currentPage})</Link></h3>
+                  <h3 className="col-xl-1 clickable-next" onClick={this.onNextClicked}>{'>'}</h3>
+                </div>
+              ) : (<h3 className="col-xl-10"><Link to={this.props.type}>{this.getListTopicHeader()}</Link></h3>)
+          }
         </div>
-        <ul className={this.props.position === LIST_POSITIONS.main ? 'list-group-flush' : 'list-group'}>
+        <ul className='list-group'>
           {this.state.displayList.map( (id) => {
             return (
-              this.props.position === LIST_POSITIONS.main ?
+              this.props.position === LIST_POSITIONS.primary || this.props.position === LIST_POSITIONS.main ?
                 <ListItem id={id} key={id} /> : <SimpleListItem id={id} key={id} />
             );
           })}
@@ -154,3 +162,9 @@ export class List extends React.Component {
     );
   }
 }
+
+List.propTypes = {
+  position: PropTypes.any.isRequired,
+  listLength: PropTypes.any.isRequired,
+  type: PropTypes.any.isRequired
+};

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import * as RequestHandlers from '../requestHandlers/requestHandler';
+import PropTypes from 'prop-types';
 import * as Utils from '../utils/utils';
 import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import * as RequestHandlers from '../requestHandlers/requestHandler';
 
 /**
  *
@@ -67,8 +68,13 @@ export class ListItem extends Component {
         <p className="item-footer">
           Post ID: { itemData.id } | Score: { itemData.score } |
           <Link to={`${itemData.id}`}> Comments: { itemData.descendants }</Link>
+          {/* <Link to={ itemData.id }> Comments: { itemData.descendants }</Link> doesn't work. Why? */}
         </p>
       </li>
     );
   }
 }
+
+ListItem.propTypes = {
+  id: PropTypes.any.isRequired
+};

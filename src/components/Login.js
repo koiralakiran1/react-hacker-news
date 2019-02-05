@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { APP_ROUTES } from '../constants/constants';
+import HackerNewsLogo from '../assets/images/hn.png';
 
 /**
  *
@@ -45,7 +48,7 @@ class Login extends React.Component {
     } else {
       window.sessionStorage.setItem('isLoggedIn', true);
     }
-    this.props.history.push('/home');
+    this.props.history.push(APP_ROUTES.home);
   }
 
   /**
@@ -57,7 +60,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="container col-xl-5 login-box jumbotron">
-        <img width="120px" height="50px" src={require('../assets/images/hn.png')} alt="Hacker News" />
+        <img width="120px" height="50px" src={HackerNewsLogo} alt="Hacker News" />
         <h3> Please Login </h3>
         <button type="button" onClick={this.handleLoginClicked.bind(this)} className="btn bg-orange">Login</button>
         <p>
@@ -70,3 +73,7 @@ class Login extends React.Component {
 }
 
 export default Login;
+
+Login.propTypes = {
+  history: PropTypes.any.isRequired
+};

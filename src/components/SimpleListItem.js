@@ -1,8 +1,10 @@
+import Spinner from './Spinner';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import * as Utils from '../utils/utils';
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
-import * as Utils from '../utils/utils';
-import Spinner from './Spinner';
-import { Link } from 'react-router-dom';
+
 /**
  *
  *
@@ -49,7 +51,6 @@ export class SimpleListItem extends Component {
    * @memberof ListItem
    */
   render() {
-    const itemData = { ...this.state.itemData };
 
     return !this.state.isLoaded ? (<Spinner />) : (
       <li className="list-group-item simple-item">
@@ -65,10 +66,16 @@ export class SimpleListItem extends Component {
           </a>
         </h4>
         <p className="item-footer"> <i>
-          <Link to={`${itemData.id}`}>See Full Discussion</Link>
+          <Link to={`${this.state.itemData.id}`}> Comments: {this.state.itemData.descendants}</Link>
+          {/* <Link to={ this.state.itemData.id }> Comments: {this.state.itemData.descendants}</Link> won't work. Why? */}
         </i>
         </p>
       </li>
     );
   }
+
 }
+
+SimpleListItem.propTypes = {
+  id: PropTypes.any.isRequired
+};

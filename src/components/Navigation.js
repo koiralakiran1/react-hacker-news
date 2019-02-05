@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import hackerNewsLogo from '../assets/images/hn.png';
 import { APP_ROUTES } from '../constants/constants';
+import hackerNewsLogo from '../assets/images/hn.png';
 
 /**
  *
@@ -17,12 +18,10 @@ class Navigation extends Component {
    * @memberof Navigation
    */
   render() {
-    console.log(APP_ROUTES.home);
-    
     return (
       <div className="sticky-top container-flex bg-orange">
         <nav className="container navbar navbar-expand-lg navbar-dark">
-          <Link to="/" className="navbar-brand">
+          <Link to={ APP_ROUTES.root } className="navbar-brand">
             <img width="120px" height="50px" src={hackerNewsLogo} alt="Hacker News" />
           </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,3 +50,7 @@ class Navigation extends Component {
 }
 
 export default withRouter(Navigation);
+
+Navigation.propTypes = {
+  location: PropTypes.any.isRequired
+};

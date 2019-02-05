@@ -1,6 +1,7 @@
 export const APP_ROUTES = {
   root: `${process.env.PUBLIC_URL}/`,
   home: `${process.env.PUBLIC_URL}/home`,
+  login: `${process.env.PUBLIC_URL}/login`,
   topStories: `${process.env.PUBLIC_URL}/topstories`,
   newStories: `${process.env.PUBLIC_URL}/newstories`,
   bestStories: `${process.env.PUBLIC_URL}/beststories`,
@@ -22,12 +23,13 @@ export const HN_CONFIG = {
 };
 
 export const STORY_TYPES = {
-  'topStories': 'topstories',
-  'newStories': 'newstories',
-  'bestStories': 'beststories'
+  topStories: 'topstories',
+  newStories: 'newstories',
+  bestStories: 'beststories'
 };
 
 export const LIST_POSITIONS = {
-  'main': 'main',
-  'side': 'side'
+  primary: 'primary',
+  secondary: 'secondary',
+  main: 'main'
 };

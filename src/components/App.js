@@ -1,10 +1,10 @@
+import Main from './Main';
+import Login from './Login';
+import '../assets/styles/App.css';
 import React, { Component } from 'react';
-import './App.css';
+import PrivateRoute from './PrivateRoute';
+import { APP_ROUTES } from '../constants/constants';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { APP_ROUTES, STORY_TYPES, LIST_POSITIONS } from './constants/constants';
-import PrivateRoute from './components/PrivateRoute';
-import Main from './components/Main';
-import Login from './components/Login';
 
 /**
  *
@@ -24,9 +24,9 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path={APP_ROUTES.root} render={ (props) => {
-            return (<Redirect to='/login' {...props} />);
+            return (<Redirect to={APP_ROUTES.login} {...props} />);
           }} />
-          <Route exact path='/login' render={(props) => {
+          <Route exact path={APP_ROUTES.login} render={(props) => {
             return (window.localStorage.getItem('isLoggedIn') || window.sessionStorage.getItem('isLoggedIn')) ?
               (<Redirect to={APP_ROUTES.home} {...props} />) : (<Login {...props} />) ;
           }} />

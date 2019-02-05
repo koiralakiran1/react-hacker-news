@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
+import * as Utils from '../utils/utils';
+import CommentItem from './CommentItem';
 import React, { Component } from 'react';
 import * as RequestHandlers from '../requestHandlers/requestHandler';
-import CommentItem from './CommentItem';
-import * as Utils from '../utils/utils';
 
 /**
  *
@@ -22,7 +23,7 @@ class Comment extends Component {
     this.state = {
       storyData: {},
       comments: [],
-      errors: ''
+      errors: '',
     };
   }
 
@@ -42,8 +43,9 @@ class Comment extends Component {
           .getItem( comment )
           .then( response => {
             this.setState({
-              storyData: storyData,
-              comments: [...this.state.comments, response]
+              storyData,
+              comments: [...this.state.comments, response],
+              errors: ''
             });
           }
           )
@@ -51,7 +53,8 @@ class Comment extends Component {
       });
     } else {
       this.setState({
-        errors: 'No Comments.'
+        errors: 'No Comments.',
+        storyData
       });
     }
   }
@@ -64,24 +67,30 @@ class Comment extends Component {
    */
   render() {
 
-    return (
-      <>
+    return this.state.comments.length !== 0 ? (
+      <React.Fragment>
         <h2><a href={this.state.storyData.url}>{this.state.storyData.title}</a></h2>
         <p className="story-header">{Utils.timestampConvertor(this.state.storyData.time)} | By:
           <a href={'https://news.ycombinator.com/user?id=' + this.state.storyData.by}> @{this.state.storyData.by}</a>
         </p>
-        {this.state.comments.length !== 0 ? (
-          <ul className="comment-tree list-group">
-            {this.state.comments.map( comment => (
-              <CommentItem data={ comment } key={ comment.id} />
-            ))}
-          </ul>
-        ) : (
-          <p> {this.state.errors}</p>
-        )}
-      </>
+        <ul className="comment-tree list-group">
+          {this.state.comments.map( comment => (
+            <CommentItem data={ comment } key={ comment.id} />
+          ))}
+        </ul>
+      </React.Fragment>
+    ) : (
+      <React.Fragment>
+        <h2><a href={this.state.storyData.url}>{this.state.storyData.title && this.state.storyData.title}</a></h2>
+        <h5><i>{this.state.errors}</i></h5>
+      </React.Fragment>
     );
   }
+
 }
 
 export default Comment;
+
+Comment.propTypes = {
+  match: PropTypes.any.isRequired
+};
