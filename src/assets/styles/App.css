@@ -1,0 +1,123 @@
+.App a {
+  color: black;
+}
+
+h3 {
+  text-align: center;
+}
+
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.bg-orange {
+  background: rgb(255, 102, 0);
+  box-shadow: 0px 5px 10px grey;
+  margin-bottom: 5px;
+}
+
+.App .no-left-padding, .App .list-group-flush {
+  padding-left: 0px;
+}
+
+nav a img, .login-box img {
+  padding: 5px;
+  background: white;
+}
+nav.container, .app-body.container {
+  padding: 0px;
+}
+nav li.active {
+  background: rgb(255, 69, 0);
+  text-decoration: underline;
+}
+nav li:hover {
+  background: rgb(255, 69, 0);
+}
+nav li{
+  margin-right: 15px;
+}
+nav li a {
+  color: white !important;
+  padding: 1.2rem 1.5rem !important;
+}
+
+.app-body ul {
+  padding-bottom: 10px;
+}
+
+li h2 {
+  font-size: 18px;
+}
+li h4 {
+  font-size: 14px;
+}
+
+.simple-item p {
+  font-size: 10px;
+  margin-bottom: 5px;
+  color: grey;
+}
+
+.main-item p  {
+  font-size: 11px;
+  margin-bottom: 5px;
+  color: grey;
+}
+
+.item-footer a {
+  color: blue !important;
+}
+
+ul.comment-tree li {
+  list-style: none;
+}
+
+.comment-tree .list-group-item {
+  border-left: none;
+}
+
+.comment-tree .comment {
+  padding-left: 20px;
+  border-left: 2px dotted darkgrey;
+}
+.comment-tree .comment:hover {
+  padding-left: 20px;
+  border-left: 2px solid rgb(255, 69, 0);
+}
+.comment-tree .list-group, .comment-tree .list-group-item {
+  padding-bottom: 0px;
+}
+
+.comment-tree>li {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.comment>p {
+  font-size: 12px;
+}
+.comment>p.comment-header, .comment>p.comment-footer {
+  font-size: 10px;
+  color: grey;
+}
+
+.login-box {
+  margin-top: 20vh;
+  text-align: center;
+}
+.login-box * {
+  padding: 10px;
+}
+
+button.bg-orange:hover {
+  background: rgb(255, 69, 0);
+  box-shadow: inset 5px 5px 10px rgb(255, 102, 0);
+}
+
+.list-header .row .clickable-next:hover,
+.list-header .row .clickable-previous:hover {
+  cursor: pointer;
+  color: orange;
+}

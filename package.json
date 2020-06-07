@@ -2,24 +2,38 @@
   "name": "hacker-news",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://koiralakiran1.github.io/react-hacker-news/",
   "dependencies": {
+    "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.3",
+    "react-spinners": "^0.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint-config-leapfrog/react"
+    ]
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-leapfrog": "^2.0.0-beta.0"
+  }
 }
